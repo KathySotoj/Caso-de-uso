@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Caso de Uso</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de Caso de Uso</h1>
+        <form id="caseForm">
+            <label for="id">Identificador de Caso:</label>
+            <input type="text" id="id" name="id" required>
+            
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="description">Descripción:</label>
+            <textarea id="description" name="description" required></textarea>
+            
+            <label for="factors">Factores:</label>
+            <textarea id="factors" name="factors"></textarea>
+            
+            <label for="precondition">Precondición:</label>
+            <textarea id="precondition" name="precondition"></textarea>
+            
+            <label for="postcondition">Postcondición:</label>
+            <textarea id="postcondition" name="postcondition"></textarea>
+            
+            <label for="receptions">Recepciones:</label>
+            <textarea id="receptions" name="receptions"></textarea>
+            
+            <label for="performance">Rendimiento y Frecuencia Esperada:</label>
+            <textarea id="performance" name="performance"></textarea>
+            
+            <label for="importance">Importancia:</label>
+            <textarea id="importance" name="importance"></textarea>
+            
+            <label for="urgency">Urgencia:</label>
+            <textarea id="urgency" name="urgency"></textarea>
+            
+            <label for="comments">Comentarios:</label>
+            <textarea id="comments" name="comments"></textarea>
+            
+            <button type="button" onclick="printPDF()">Imprimir PDF</button>
+        </form>
+    </div>
+    <script>
+        function printPDF() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
