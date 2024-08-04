@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Caso de Uso</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -56,15 +57,54 @@
                     <td><textarea id="comments" name="comments"></textarea></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button type="button" onclick="printPDF()">Imprimir PDF</button></td>
+                    <td colspan="2"><button type="button" onclick="generatePDF()">Descargar PDF</button></td>
                 </tr>
             </table>
         </form>
     </div>
     <script>
-        function printPDF() {
-            window.print();
+        async function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(12);
+
+            doc.text("Identificador de Caso:", 10, 10);
+            doc.text(document.getElementById("id").value, 60, 10);
+
+            doc.text("Nombre:", 10, 20);
+            doc.text(document.getElementById("name").value, 60, 20);
+
+            doc.text("Descripción:", 10, 30);
+            doc.text(document.getElementById("description").value, 60, 30);
+
+            doc.text("Factores:", 10, 40);
+            doc.text(document.getElementById("factors").value, 60, 40);
+
+            doc.text("Precondición:", 10, 50);
+            doc.text(document.getElementById("precondition").value, 60, 50);
+
+            doc.text("Postcondición:", 10, 60);
+            doc.text(document.getElementById("postcondition").value, 60, 60);
+
+            doc.text("Recepciones:", 10, 70);
+            doc.text(document.getElementById("receptions").value, 60, 70);
+
+            doc.text("Rendimiento y Frecuencia Esperada:", 10, 80);
+            doc.text(document.getElementById("performance").value, 60, 80);
+
+            doc.text("Importancia:", 10, 90);
+            doc.text(document.getElementById("importance").value, 60, 90);
+
+            doc.text("Urgencia:", 10, 100);
+            doc.text(document.getElementById("urgency").value, 60, 100);
+
+            doc.text("Comentarios:", 10, 110);
+            doc.text(document.getElementById("comments").value, 60, 110);
+
+            doc.save("formulario_caso_de_uso.pdf");
         }
     </script>
 </body>
 </html>
+
