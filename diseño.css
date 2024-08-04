@@ -19,16 +19,29 @@ h1 {
     margin-bottom: 20px;
 }
 
-form label {
-    display: block;
-    margin-top: 10px;
+form table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+form table tr td {
+    padding: 10px;
+    vertical-align: top;
+}
+
+form table tr td:first-child {
+    width: 30%;
+    font-weight: bold;
+}
+
+form table tr td:last-child {
+    width: 70%;
 }
 
 form input[type="text"],
 form textarea {
     width: 100%;
     padding: 10px;
-    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
