@@ -10,40 +10,55 @@
     <div class="container">
         <h1>Formulario de Caso de Uso</h1>
         <form id="caseForm">
-            <label for="id">Identificador de Caso:</label>
-            <input type="text" id="id" name="id" required>
-            
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="description">Descripción:</label>
-            <textarea id="description" name="description" required></textarea>
-            
-            <label for="factors">Factores:</label>
-            <textarea id="factors" name="factors"></textarea>
-            
-            <label for="precondition">Precondición:</label>
-            <textarea id="precondition" name="precondition"></textarea>
-            
-            <label for="postcondition">Postcondición:</label>
-            <textarea id="postcondition" name="postcondition"></textarea>
-            
-            <label for="receptions">Recepciones:</label>
-            <textarea id="receptions" name="receptions"></textarea>
-            
-            <label for="performance">Rendimiento y Frecuencia Esperada:</label>
-            <textarea id="performance" name="performance"></textarea>
-            
-            <label for="importance">Importancia:</label>
-            <textarea id="importance" name="importance"></textarea>
-            
-            <label for="urgency">Urgencia:</label>
-            <textarea id="urgency" name="urgency"></textarea>
-            
-            <label for="comments">Comentarios:</label>
-            <textarea id="comments" name="comments"></textarea>
-            
-            <button type="button" onclick="printPDF()">Imprimir PDF</button>
+            <table>
+                <tr>
+                    <td><label for="id">Identificador de Caso:</label></td>
+                    <td><input type="text" id="id" name="id" required></td>
+                </tr>
+                <tr>
+                    <td><label for="name">Nombre:</label></td>
+                    <td><input type="text" id="name" name="name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="description">Descripción:</label></td>
+                    <td><textarea id="description" name="description" required></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="factors">Factores:</label></td>
+                    <td><textarea id="factors" name="factors"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="precondition">Precondición:</label></td>
+                    <td><textarea id="precondition" name="precondition"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="postcondition">Postcondición:</label></td>
+                    <td><textarea id="postcondition" name="postcondition"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="receptions">Recepciones:</label></td>
+                    <td><textarea id="receptions" name="receptions"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="performance">Rendimiento y Frecuencia Esperada:</label></td>
+                    <td><textarea id="performance" name="performance"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="importance">Importancia:</label></td>
+                    <td><textarea id="importance" name="importance"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="urgency">Urgencia:</label></td>
+                    <td><textarea id="urgency" name="urgency"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="comments">Comentarios:</label></td>
+                    <td><textarea id="comments" name="comments"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="button" onclick="printPDF()">Imprimir PDF</button></td>
+                </tr>
+            </table>
         </form>
     </div>
     <script>
