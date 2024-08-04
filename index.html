@@ -57,7 +57,9 @@
                     <td><textarea id="comments" name="comments"></textarea></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button type="button" onclick="generatePDF()">Descargar PDF</button></td>
+                    <td colspan="2">
+                        <button type="button" onclick="generatePDF()">Imprimir y Descargar PDF</button>
+                    </td>
                 </tr>
             </table>
         </form>
@@ -67,44 +69,35 @@
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-            doc.setFontSize(12);
+            const formData = {
+                id: document.getElementById('id').value,
+                name: document.getElementById('name').value,
+                description: document.getElementById('description').value,
+                factors: document.getElementById('factors').value,
+                precondition: document.getElementById('precondition').value,
+                postcondition: document.getElementById('postcondition').value,
+                receptions: document.getElementById('receptions').value,
+                performance: document.getElementById('performance').value,
+                importance: document.getElementById('importance').value,
+                urgency: document.getElementById('urgency').value,
+                comments: document.getElementById('comments').value
+            };
 
-            doc.text("Identificador de Caso:", 10, 10);
-            doc.text(document.getElementById("id").value, 60, 10);
+            let yOffset = 10;
 
-            doc.text("Nombre:", 10, 20);
-            doc.text(document.getElementById("name").value, 60, 20);
+            for (const key in formData) {
+                if (formData.hasOwnProperty(key)) {
+                    doc.text(`${key.charAt(0).toUpperCase() + key.slice(1)}: ${formData[key]}`, 10, yOffset);
+                    yOffset += 10;
+                }
+            }
 
-            doc.text("Descripción:", 10, 30);
-            doc.text(document.getElementById("description").value, 60, 30);
+            doc.save('formulario-caso-uso.pdf');
 
-            doc.text("Factores:", 10, 40);
-            doc.text(document.getElementById("factors").value, 60, 40);
-
-            doc.text("Precondición:", 10, 50);
-            doc.text(document.getElementById("precondition").value, 60, 50);
-
-            doc.text("Postcondición:", 10, 60);
-            doc.text(document.getElementById("postcondition").value, 60, 60);
-
-            doc.text("Recepciones:", 10, 70);
-            doc.text(document.getElementById("receptions").value, 60, 70);
-
-            doc.text("Rendimiento y Frecuencia Esperada:", 10, 80);
-            doc.text(document.getElementById("performance").value, 60, 80);
-
-            doc.text("Importancia:", 10, 90);
-            doc.text(document.getElementById("importance").value, 60, 90);
-
-            doc.text("Urgencia:", 10, 100);
-            doc.text(document.getElementById("urgency").value, 60, 100);
-
-            doc.text("Comentarios:", 10, 110);
-            doc.text(document.getElementById("comments").value, 60, 110);
-
-            doc.save("formulario_caso_de_uso.pdf");
+            setTimeout(() => {
+                window.print();
+            }, 2000);
         }
     </script>
 </body>
 </html>
-
